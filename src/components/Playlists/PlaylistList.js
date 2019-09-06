@@ -7,18 +7,22 @@ const PlaylistList = (props) => {
   const {accessToken, category} = props;
   const [appearing, setAppearing] = useState(true)
   
-  setTimeout(() => {
-    setAppearing(false)
-  }, 300);
+  let appear =()=> {
+    setTimeout(() => {
+      setAppearing(false)
+    }, 300);
+  }
+  appear()
+  
 
 const fetchPlaylists = useCallback(() => {
   setAppearing(true)
   spotifyApi.getPlaylists(accessToken, category)
-    .then(data=>{setPlaylists(data.playlists.items);  
-      setTimeout(() => {
-        setAppearing(false)
-   
-      }, 300);})
+    .then(data=>{
+      const {items} = data.playlists;
+      setPlaylists(items);
+      appear();
+    })
 }, [accessToken, category]) 
 
 useEffect(() => {
@@ -27,11 +31,11 @@ useEffect(() => {
 
 
   return (
-    <div className={`table-container ${!appearing && "appear"}`}>
+    <article className={`table-container ${!appearing && "appear"}`}>
      
    {playlists.length && <PlaylistTable playlists={playlists}/>}
       
-    </div>
+    </article>
   );
 
   }
