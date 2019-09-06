@@ -1,0 +1,11 @@
+.categories{
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: hidden;
+  button {
+    position: absolute;
+    z-index: 8;
+  }
+}

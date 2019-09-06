@@ -1,0 +1,18 @@
+
+.table-container{
+  position: absolute;
+  top: 35%;
+  background: green;
+  overflow-x: hidden;
+  height: 39%;
+  overflow-y: scroll;
+  left: -107%;
+  transition-duration: 0.5s;
+  z-index: 2000;
+  opacity: 0.5;
+  &.appear {
+    left: 11px;
+    transition-duration: 0.5s;
+    opacity: 1;
+  }
+}

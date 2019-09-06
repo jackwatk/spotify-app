@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Gayathri|Manjari&display=swap");
+main {
+  background: #191414;
+  height: 100vh; }
+  main * {
+    transition-duration: 0.5s; }
+
+.categories {
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: hidden; }
+  .categories button {
+    position: absolute;
+    z-index: 8; }
+
+.catergory-box {
+  transition-duration: 0.7s;
+  height: 275px;
+  width: 275px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: flex-end;
+  padding: 3px;
+  position: relative;
+  left: 0;
+  right: 0; }
+  .catergory-box h2 {
+    font-family: 'Manjari', sans-serif;
+    color: #FFFFFF;
+    font-size: 1rem;
+    text-shadow: 4px 4px 4px #1DB954; }
+  .catergory-box.selected {
+    transform: scale(0.7);
+    border: 2px solid white;
+    border-radius: 50%;
+    transition-duration: 0.7s;
+    justify-content: center;
+    box-shadow: 0px 1px 10px 10px #ffffff29; }
+  .catergory-box.removed {
+    position: absolute;
+    left: 2000px;
+    transition-duration: 0.7s; }
+
+@media only screen and (max-width: 600px) {
+  .catergory-box {
+    margin: 10px; } }
+
+.table-container {
+  position: absolute;
+  top: 35%;
+  background: green;
+  overflow-x: hidden;
+  height: 39%;
+  overflow-y: scroll;
+  left: -107%;
+  transition-duration: 0.5s;
+  z-index: 2000;
+  opacity: 0.5; }
+  .table-container.appear {
+    left: 11px;
+    transition-duration: 0.5s;
+    opacity: 1; }
+
+.category-dropdown {
+  background: #191414;
+  font-family: 'Gayathri', sans-serif;
+  color: #FFFFFF;
+  height: 10px;
+  border: none;
+  text-align-last: center;
+  padding-right: 29px; }
+  .category-dropdown:focus {
+    outline: none; }
+  .category-dropdown option {
+    background: #1DB954; }
+
+@media only screen and (max-width: 600px) {
+  .category-dropdown {
+    height: 40px;
+    width: 100vw;
+    padding: 0; } }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Categories from './components/Categories/Categories';
 import Playlists from './components/Playlists/PlaylistList';
+import CategorySelect from './components/CategorySelect';
 
 class App extends Component {
   state = {
@@ -49,10 +50,10 @@ class App extends Component {
   render() {
     const {access_token, showPlaylists, categoryId} = this.state;
     return (
-      <div>
-        {access_token ? <Categories accessToken={access_token} setCategoryId={this.setCategoryId}/> : <h1>Log in</h1>}
+      <main>
+        {access_token ? <Categories accessToken={access_token} categoryId={categoryId} setCategoryId={this.setCategoryId}/> : <h1>Log in</h1>}
         {showPlaylists && <Playlists accessToken={access_token} category={categoryId}/>}
-      </div>
+      </main>
     );
   }
 }

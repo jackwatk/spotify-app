@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import spotifyApi from "../../services/SpotifyApi";
 import CatergoryBox from './CatergoryBox';
+import CategorySelect from '../CategorySelect';
 
 class Categories extends Component {
   state={
     items: [],
     loading: true,
+  
     error: false,
     errorMessage: "",
   }
@@ -17,14 +19,16 @@ class Categories extends Component {
       })
       .catch(error=>this.setState({error: true, errorMessage: error.response.error}));
   }
+
+ 
   
   render() {
-    const {loading, items} = this.state;
+    const {loading, items, } = this.state;
     return (
-      <div>
-        <h2>Categories</h2>
-        {!loading && items.map((catergory)=><CatergoryBox key={catergory.id} info={catergory} refreshList={this.props.setCategoryId}/>)}
-      </div>
+      <section className="categories">
+        <CategorySelect categories={items} selectedId={this.props.categoryId} setCategoryId={this.props.setCategoryId}/>
+        {!loading && items.map((catergory)=><CatergoryBox key={catergory.id} selectedId={this.props.categoryId} info={catergory} refreshList={this.props.setCategoryId}/>)}
+      </section>
     );
   }
 }

@@ -1,0 +1,21 @@
+.category-dropdown{
+    background: #191414;
+    @include content($white);
+    height: 10px;
+    border: none;
+    text-align-last: center;
+    padding-right: 29px;
+  &:focus{
+    outline: none;
+  }
+  option {
+    background: $green;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .category-dropdown{
+    height: 40px;
+    width: 100vw;
+    padding: 0;
+  }
+}
