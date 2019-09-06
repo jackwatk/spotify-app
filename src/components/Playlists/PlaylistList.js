@@ -20,7 +20,8 @@ const fetchPlaylists = useCallback(() => {
   spotifyApi.getPlaylists(accessToken, category)
     .then(data=>{
       const {items} = data.playlists;
-      setPlaylists(items);
+      
+      setPlaylists(items.slice(0,10));
       appear();
     })
 }, [accessToken, category]) 
